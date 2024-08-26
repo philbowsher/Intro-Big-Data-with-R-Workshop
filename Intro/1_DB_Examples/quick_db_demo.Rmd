@@ -1,0 +1,84 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+## Packages
+
+```{r}
+#| label: setup
+
+library(DBI)
+library(odbc)
+library(skimr)
+library(pointblank)
+library(tidyverse)
+library(glue)
+library(gt)
+
+```
+
+## database data Connect to the database
+
+```{r}
+#| label: make database connection
+
+# Run this code as-is 
+con <- dbConnect(
+  odbc::odbc(),
+  Driver      = "postgresql",
+  Server      = Sys.getenv("DATABASE_HOST"),
+  Port        = "5432",
+  Database    = Sys.getenv("DATABASE_NAME_R"),
+  UID         = Sys.getenv("DATABASE_USER_R"),
+  PWD         = Sys.getenv("DATABASE_PASSWORD_R"),
+  timeout     = 10
+)
+
+```
+
+
+```{r include=FALSE}
+# old
+# library(DBI)
+# con <- dbConnect(odbc::odbc(), "SQL Server (DSN)")
+```
+
+```{r}
+# dbGetQuery(con, "Select top 10 * from vesselinfo_raw")
+dbGetQuery(con, "Select * from vesselinfo_raw limit 10")
+```
+
+```{sql, connection = con}
+SELECT "class_name", COUNT(*) AS "n"
+FROM "vesselinfo_raw"
+GROUP BY 1
+ORDER BY "n" DESC
+```
+
+```{r}
+library(dplyr)
+vesselinfo_raw <- tbl(con, "vesselinfo_raw")
+```
+
+```{r}
+vesselinfo_raw %>%
+  tally
+```
+
+```{r}
+vesselinfo_raw %>%
+  group_by(class_name) %>% 
+  tally %>%
+  arrange(desc(n)) 
+  
+```
+
+```{r}
+vesselinfo_raw %>%
+  group_by(class_name) %>% 
+  tally %>%
+  arrange(desc(n)) %>%
+  show_query()
+  
+```
