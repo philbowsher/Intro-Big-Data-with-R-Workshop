@@ -3,6 +3,7 @@ Intro Big Data with R Workshop
 
 # Part 0 Flat files
 https://cran.r-project.org/web/packages/data.table/vignettes/datatable-intro.html
+
 https://dplyr.tidyverse.org/
 
 # Part 1 Interfacing with DBs
