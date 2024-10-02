@@ -11,6 +11,8 @@ https://r4ds.hadley.nz/databases#connecting-to-a-database
 
 https://solutions.posit.co/connections/db/
 
+https://solutions.posit.co/connections/db/databases/
+
 https://github.com/philbowsher/Intro-Big-Data-with-R-Workshop/blob/main/Intro/1_DB_Examples/quick_db_demo.Rmd
 
 https://github.com/posit-conf-2024/ds-workflows-r
@@ -20,12 +22,33 @@ https://github.com/philbowsher/Intro-Big-Data-with-R-Workshop/blob/main/Intro/db
 
 https://quarto.org/docs/dashboards/
 
+# Cloud
+
+**Google:**
+
+https://bigrquery.r-dbi.org/
+
+https://solutions.posit.co/connections/db/databases/big-query/
+
+https://github.com/cloudyr/googleCloudStorageR
+
+https://pins.rstudio.com/reference/board_gcs.html
+
+https://googlesheets4.tidyverse.org/
+
+**ML**
+https://www.tmwr.org/
+
+https://vetiver.posit.co/
+
 # Part 2 Hadoop, HDFS, Spark
 https://github.com/sparklyr/sparklyr
 
 https://spark.posit.co/deployment/yarn-cluster-emr.html
 
 https://github.com/posit-conf-2024/databricks
+
+https://spark.posit.co/guides/mlib.html
 
 # Part 3 Arrow
 https://github.com/philbowsher/Intro-Big-Data-with-R-Workshop/blob/main/arrow-main/materials/1_hello_arrow-exercises.qmd
